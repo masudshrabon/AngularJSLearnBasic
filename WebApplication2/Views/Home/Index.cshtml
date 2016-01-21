@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "AngularJS";
+}
+<script src="~/Scripts/Modules/myApp1.js"></script>
+
+<h2>Hello Angular JS !!!</h2>
+
+<div class="container well" ng-app="myApp" ng-controller="personController">
+    First Name: <input type="text" ng-model="firstName" /> <br />
+    Last Name: <input type="text" ng-model="lastName" /> <br />
+    <br />
+    Full Name: {{firstName + " " + lastName}} <br />
+    Full Name (by function call): {{fullName()}}
+
+
+    
+</div>
+@*<script>
+        var app = angular.module("myApp", []);
+        app.controller('myCtrl', function($scope) {
+            $scope.firstName = "Maheem";
+            $scope.lastName = "Hossain";
+        });
+    </script>*@

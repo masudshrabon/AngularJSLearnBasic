@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "FilterApp";
+}
+<script src="~/Scripts/Modules/namesController.js"></script>
+<h2>Filtering</h2>
+
+    <div ng-app="filterApp" ng-controller="nameCtrl" class="container well">
+        <h2>Name: {{controllerName}}</h2>
+        <div class="col-md-6">
+            Type for filtering: <input type="text" ng-model="filterData" placeholder="filter" />
+            <ul ng-repeat="x in names | filter: filterData | orderBy: 'country'" style="list-style-type:none">
+                <li>
+                    {{$index+1 + ". "}} {{x.name + ", " + x.country}}
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <p>Click the table headers to change the sorting order:</p>
+            <table class="table table-bordered" width="100%">
+                <tr>
+                    <th ng-click="orderByMe('name')">Names</th>
+                    <th ng-click="orderByMe('country')">Countries</th>
+                </tr>
+                <tr ng-repeat="x in names | orderBy: myOrderBy">
+                    <td>{{x.name}}</td>
+                    <td>{{x.country}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
